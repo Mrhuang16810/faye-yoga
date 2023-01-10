@@ -10,7 +10,7 @@
         <link type="text/css" rel="stylesheet" href="CSS/nav.css">
         <link type="text/css" rel="stylesheet" href="CSS/hidden.css">
         <link type="text/css" rel="stylesheet" href="CSS/ratio.css">
-        <link type="text/css" rel="stylesheet" href="CSS/cards.css">
+<!--        <link type="text/css" rel="stylesheet" href="CSS/cards.css">-->
         <link type="text/css" rel="stylesheet" href="CSS/video.css">
         <link type="text/css" rel="stylesheet" href="CSS/footer.css">
         <script src="https://kit.fontawesome.com/6a4f655860.js" crossorigin="anonymous"></script>
@@ -104,94 +104,174 @@
         <main>
             <section>
 <!--            首頁標語-->
+                <style>
+                    .cards{
+                        width: 830px;
+                        border: 2px dashed;
+                        margin: 8px 0;
+                        border-radius: 8px;
+                        border-color: transparent;
+                        background-color:floralwhite;
+                    }
+                    .cards-image{
+                        border-radius: 8px 0 0 0;
+                    }
+                    .cards-list{
+                        position: absolute;
+                        bottom: 0;
+                        background-color: rgba(0,0,0,0.36);
+                        color: gainsboro;
+                        margin: 0;
+                        height: 20px;
+                    }
+                    .cards-title{
+                        margin: 0px;
+                        cursor: pointer;
+                    }
+                    .cards-list .cards-title:hover{
+                        background-color: rgba(0,0,0,0.36);
+                    }
+                    .cards-content-1{
+                        margin: 0;
+                    }
+                    .cards-text >p{
+                        margin: 0 0 15px 8px;
+                    }
+                    #cards-1_1{
+                        display: none;
+                    }
+                    #cards-1_2{
+                        display: none;
+                    }
+                    #cards-1_3{
+                        display: none;
+                    }
+                </style>
+                <script>
+                    $(function(){
+                        $("#cards-title-1").click(function(){
+                            $("#cards-1_1").slideToggle(1000);
+                        });
+                    });
+                    $(function(){
+                        $("#cards-title-2").click(function(){
+                            $("#cards-1_2").slideToggle(1000);
+                        });
+                    });
+                    $(function(){
+                        $("#cards-title-3").click(function(){
+                            $("#cards-1_3").slideToggle(1000);
+                        });
+                    });
+                </script>
                 <div class="row">
                     <div class="index-cover">
+                        <div class="container">
+                            <div class="row cards-list ">
+                                <div class="col-phone-33">
+                                    <h3 id="cards-title-1" class="cards-title">「視覺上是美麗的」</h3>
+                                </div>
+                                <div class="col-phone-33">
+                                    <h3 id="cards-title-2" class="cards-title">「瑜珈體位法讀書會」</h3>
+                                </div>
+                                <div class="col-phone-33">
+                                    <h3 id="cards-title-3" class="cards-title">「功能整課程」</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section>
-<!--            cards-->
-                <div class="row container">
-                    <div class="col-phone-100 col-tablet-33">
-                        <div class="cards">
-                            <div class="_image">
-                                <div class="ratio_50_70">
-                                    <img class="ratio-content image_50_70" src="CSS/Faye/S__15720460.jpg">
-                                </div>
+            <section id="cards-1_1" class="container">
+                <div class="cards">
+                    <div class="row cards-content-1">
+                        <div class="col-phone-15">
+                            <div class="ratio_3_4">
+                                <img class="cards-image ratio-content" src="CSS/Faye/S__15720460.jpg">
                             </div>
-                            <div class="_content">
-                                <h2 class="content-title">「視覺上是美麗的」</h2>
-                                <hr/>
-                                <p>當我們結束FI，我把時間留給她，看見她的雙手在空間中彈奏著心裡的樂章時，聽見她對我們說</p>
+                        </div>
+                        <div class="col-phone-85">
+                            <div class="ratio_px">
+                                <div class="ratio-content cards-text">
+                                    <p>當我們結束FI，我把時間留給她，看見她的雙手在空間中彈奏著心裡的樂章時，聽見她對我們說</p>
 
-                                <p>「感覺比較鬆的雙手，跟平常感覺的手有什麼不同?」</p>
-                                
-                                <p>「比較鬆」她反覆撫弄著雙手，沉吟輕語，對我也對她自己表白</p>
+                                    <p>「感覺比較鬆的雙手，跟平常感覺的手有什麼不同?」</p>
 
-                                <p>原來〝鬆〞是美麗的！！！</p>
-                                <p>再一次，令我敬佩而我稱她為「女人!你的名字叫做勇敢」的Emily，教導我『美麗』可以用〝鬆〞來呈現。</p>
+                                    <p>「比較鬆」她反覆撫弄著雙手，沉吟輕語，對我也對她自己表白</p>
+
+                                    <p>原來〝鬆〞是美麗的！！！</p>
+                                    <p>再一次，令我敬佩而我稱她為「女人!你的名字叫做勇敢」的Emily，教導我『美麗』可以用〝鬆〞來呈現。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-phone-100 col-tablet-33">
-                        <div class="cards">
-                            <div class="_image">
-                                <div class="ratio_100_70">
-                                    <img class="ratio-content image_50_70" src="CSS/Faye/S__15720462.jpg">
-                                </div>
+                </div>
+            </section>
+            <section id="cards-1_2" class="container">
+                <div class="cards">
+                    <div class="row cards-content-1">
+                        <div class="col-phone-15">
+                            <div class="ratio_3_4">
+                                <img class="cards-image ratio-content" src="CSS/Faye/S__15720462.jpg">
                             </div>
-                            <div class="_content">
-                                <h2 class="content-title">「瑜珈體位法讀書會」</h2>
-                                <hr/>
-                                <p>以下為「瑜珈體位法讀書會」之學生分享：</p>
-                                <p>將注意力放到身體在空間中～</p>
+                        </div>
+                        <div class="col-phone-85">
+                            <div class="ratio_pxpx">
+                                <div class="ratio-content cards-text">
+                                    <p>以下為「瑜珈體位法讀書會」之學生分享：</p>
+                                    <p>將注意力放到身體在空間中～</p>
 
-                                <p>我喜歡老師上課前，總是讓我躺下，</p>
-                                <p>就像在告訴身體，</p>
-                                <p>『不要緊張，不用出力，安靜的，放鬆的就好。』</p>
-                                <p>然後我閉上雙眼，</p>
-                                <p>開始勾勒出身體的形狀，</p>
-                                <p>從頭頂開始，沿著每一節脊椎向下延伸，</p>
-                                <p>就像電腦3D製圖一樣，</p>
-                                <p>先畫出身體的中線，於是我變成了兩半，</p>
-                                <p>可以向前對折，或向後對折，</p>
-                                <p>突然的，我覺得自己變成了一隻蝴蝶。</p>
-                                <p>一隻在做半月式的蝴蝶！</p>
+                                    <p>我喜歡老師上課前，總是讓我躺下，</p>
+                                    <p>就像在告訴身體，</p>
+                                    <p>『不要緊張，不用出力，安靜的，放鬆的就好。』</p>
+                                    <p>然後我閉上雙眼，</p>
+                                    <p>開始勾勒出身體的形狀，</p>
+                                    <p>從頭頂開始，沿著每一節脊椎向下延伸，</p>
+                                    <p>就像電腦3D製圖一樣，</p>
+                                    <p>先畫出身體的中線，於是我變成了兩半，</p>
+                                    <p>可以向前對折，或向後對折，</p>
+                                    <p>突然的，我覺得自己變成了一隻蝴蝶。</p>
+                                    <p>一隻在做半月式的蝴蝶！</p>
 
-                                <p>當我一邊在想樣中，身體也同步在行動，</p>
-                                <p>剛開始，我感到自信，覺得身體的型態即將和我腦中的畫面一致，</p>
-                                <p>但是馬上的就開始感受到身體的某些部位不聽指令，</p>
-                                <p>然後想像力也中斷了。</p>
+                                    <p>當我一邊在想樣中，身體也同步在行動，</p>
+                                    <p>剛開始，我感到自信，覺得身體的型態即將和我腦中的畫面一致，</p>
+                                    <p>但是馬上的就開始感受到身體的某些部位不聽指令，</p>
+                                    <p>然後想像力也中斷了。</p>
 
-                                <p>我不經開始思考，</p>
-                                <p>想像力是來自心裏還是腦袋？</p>
-                                <p>心裏的事就是腦袋裏跑出的嗎？</p>
+                                    <p>我不經開始思考，</p>
+                                    <p>想像力是來自心裏還是腦袋？</p>
+                                    <p>心裏的事就是腦袋裏跑出的嗎？</p>
 
-                                <p>這就是身心合一的感覺嗎？</p>
+                                    <p>這就是身心合一的感覺嗎？</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-phone-100 col-tablet-33">
-                        <div class="cards">
-                            <div class="_image">
-                                <div class="ratio_50_70">
-                                    <img class="ratio-content image_50_70" src="CSS/Faye/176159578_2959253974351077_2049902473232124848_n.jpeg">
-                                </div>
+                </div>
+            </section>
+            <section id="cards-1_3" class="container">
+                <div class="cards">
+                    <div class="row cards-content-1">
+                        <div class="col-phone-15">
+                            <div class="ratio_3_4">
+                                <img class="cards-image ratio-content" src="CSS/Faye/176159578_2959253974351077_2049902473232124848_n.jpeg">
                             </div>
-                            <div class="_content">
-                                <h2 class="content-title">「功能整課程」</h2>
-                                <hr/>
-                                <p>最近，持續的進行「功能整課程」，有個小小的觀察，覺得十分有趣</p>
-                                <p>經常，會有人在課程中進入恍惚半入睡狀態，而這時，每個人所呈現的本體感覺都不甚相同</p>
-                                <p>有些人，清醒意識時的本體感是輕盈的，彷彿自我意象能駕馭著身體當下的學習；</p></p>
-                                <p>而當他進入意識的交界處時，有彷彿退駕般的沉默不語，交托身體任由我的碰觸引導產生本體的經驗學習</p>
-                                <p>即使，當下，他是不自知，卻能在站立整合時，感受到整體的變化。</p>
-                                <p>有些人，恰恰相反</p>
-                                <p>在跟隨我的碰觸下，處處感覺到僵硬沉重，如同自我意象被束縛框架，在不知名或極度掌控的情境中，無可自拔、無能為力，動彈無方......</p>
-                                <p>一旦，他再經過某種驅策的臣服卸除，自發的走入恍惚的邊緣，如同重獲自由般，身體如同初生嬰兒以再輕盈不過的自我意象，與我共舞....</p>
-                                <p>美極了，就算他回到清醒的意識，依然僵硬沉重</p>
-                                <p>我相信，當下的學習，會在潛移默化中，令他感受到整體的改變。</p>
-                                <p>你呢？會有什麼經驗呢？</p>
+                        </div>
+                        <div class="col-phone-85">
+                            <div class="ratio_pxpxpx">
+                                <div class="ratio-content cards-text">
+                                    <p>最近，持續的進行「功能整課程」，有個小小的觀察，覺得十分有趣</p>
+                                    <p>經常，會有人在課程中進入恍惚半入睡狀態，而這時，每個人所呈現的本體感覺都不甚相同</p>
+                                    <p>有些人，清醒意識時的本體感是輕盈的，彷彿自我意象能駕馭著身體當下的學習；</p>
+                                    <p>而當他進入意識的交界處時，有彷彿退駕般的沉默不語，交托身體任由我的碰觸引導產生本體的經驗學習</p>
+                                    <p>即使，當下，他是不自知，卻能在站立整合時，感受到整體的變化。</p>
+                                    <p>有些人，恰恰相反</p>
+                                    <p>在跟隨我的碰觸下，處處感覺到僵硬沉重，如同自我意象被束縛框架，在不知名或極度掌控的情境中，無可自拔、無能為力，動彈無方......</p>
+                                    <p>一旦，他再經過某種驅策的臣服卸除，自發的走入恍惚的邊緣，如同重獲自由般，身體如同初生嬰兒以再輕盈不過的自我意象，與我共舞....</p>
+                                    <p>美極了，就算他回到清醒的意識，依然僵硬沉重</p>
+                                    <p>我相信，當下的學習，會在潛移默化中，令他感受到整體的改變。</p>
+                                    <p>你呢？會有什麼經驗呢？</p>
+                                </div>
                             </div>
                         </div>
                     </div>
