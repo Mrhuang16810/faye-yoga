@@ -1,14 +1,63 @@
-.cards{
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
-    margin: 8px;
-    border-radius: 12px;
+.cards-1{
+    width: 830px;
+    border: 2px dashed;
+    margin-right: auto;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color:floralwhite;
 }
-.cards ._content{
-    padding: 0 12px;
-    line-height: 1.5em;
-    height: 21em;
-    overflow-y: scroll;
+.cards-2{
+    width: 830px;
+    border: 2px dashed;
+    margin: 0 auto;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color:floralwhite;
 }
-.cards ._content .content-title{
-    color: brown;
+.cards-3{
+    width: 830px;
+    border: 2px dashed;
+    margin-left:auto;
+    border-radius: 8px;
+    border-color: transparent;
+    background-color:floralwhite;
+}
+.cards-content{
+    margin: 0;
+    box-shadow: 0 2px 3px #CCCCCC;
+    border-radius: 8px;
+}
+.cards-image{
+    border-radius: 8px 0 0 0;
+}
+.cards-image-3{
+    border-radius: 0 8px 0 0;
+}
+.cards-list{
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.36);
+    color: gainsboro;
+    margin: 0;
+    height: 20px;
+}
+.cards-title{
+    margin: 0px;
+    cursor: pointer;
+}
+.cards-list .cards-title:hover{
+    background-color: rgba(0,0,0,0.36);
+}
+.cards-text >p{
+    margin: 0 0 15px 8px;
+}
+#cards-1_1{
+    display: none;
+    
+}
+#cards-1_2{
+    display: none;
+}
+#cards-1_3{
+    display: none;
 }
