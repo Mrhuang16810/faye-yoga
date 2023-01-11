@@ -1,0 +1,35 @@
+footer{
+    background-color: #242424;
+}
+.footer-list{
+    list-style: none;
+    color: white;
+    text-align: center;
+}
+.footer-list .footer-list-item{
+    margin: 16px;
+}
+.footer-block{
+    margin-top: 30px;
+}
+.footer-block .fa{
+    background-color: wheat;
+    height: 48px;
+    width: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 20px;
+    color: black;
+}
+@media (max-width:767px){
+    .footer-block{
+        text-align: center;
+        height: 70px;
+        line-height: 70px;
+        margin-top: 0;
+    }
+    .footer-list{
+        padding-left: 8px;
+    }
+}
