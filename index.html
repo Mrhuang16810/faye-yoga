@@ -10,7 +10,7 @@
         <link type="text/css" rel="stylesheet" href="CSS/nav.css">
         <link type="text/css" rel="stylesheet" href="CSS/hidden.css">
         <link type="text/css" rel="stylesheet" href="CSS/ratio.css">
-<!--        <link type="text/css" rel="stylesheet" href="CSS/cards.css">-->
+        <link type="text/css" rel="stylesheet" href="CSS/cards.css">
         <link type="text/css" rel="stylesheet" href="CSS/video.css">
         <link type="text/css" rel="stylesheet" href="CSS/footer.css">
         <script src="https://kit.fontawesome.com/6a4f655860.js" crossorigin="anonymous"></script>
@@ -104,66 +104,6 @@
         <main>
             <section>
 <!--            首頁標語-->
-                <style>
-                    .cards{
-                        width: 830px;
-                        border: 2px dashed;
-                        margin: 8px 0;
-                        border-radius: 8px;
-                        border-color: transparent;
-                        background-color:floralwhite;
-                    }
-                    .cards-image{
-                        border-radius: 8px 0 0 0;
-                    }
-                    .cards-list{
-                        position: absolute;
-                        bottom: 0;
-                        background-color: rgba(0,0,0,0.36);
-                        color: gainsboro;
-                        margin: 0;
-                        height: 20px;
-                    }
-                    .cards-title{
-                        margin: 0px;
-                        cursor: pointer;
-                    }
-                    .cards-list .cards-title:hover{
-                        background-color: rgba(0,0,0,0.36);
-                    }
-                    .cards-content-1{
-                        margin: 0;
-                    }
-                    .cards-text >p{
-                        margin: 0 0 15px 8px;
-                    }
-                    #cards-1_1{
-                        display: none;
-                    }
-                    #cards-1_2{
-                        display: none;
-                    }
-                    #cards-1_3{
-                        display: none;
-                    }
-                </style>
-                <script>
-                    $(function(){
-                        $("#cards-title-1").click(function(){
-                            $("#cards-1_1").slideToggle(1000);
-                        });
-                    });
-                    $(function(){
-                        $("#cards-title-2").click(function(){
-                            $("#cards-1_2").slideToggle(1000);
-                        });
-                    });
-                    $(function(){
-                        $("#cards-title-3").click(function(){
-                            $("#cards-1_3").slideToggle(1000);
-                        });
-                    });
-                </script>
                 <div class="row">
                     <div class="index-cover">
                         <div class="container">
@@ -183,8 +123,8 @@
                 </div>
             </section>
             <section id="cards-1_1" class="container">
-                <div class="cards">
-                    <div class="row cards-content-1">
+                <div class="cards-1">
+                    <div class="row cards-content">
                         <div class="col-phone-15">
                             <div class="ratio_3_4">
                                 <img class="cards-image ratio-content" src="CSS/Faye/S__15720460.jpg">
@@ -208,8 +148,8 @@
                 </div>
             </section>
             <section id="cards-1_2" class="container">
-                <div class="cards">
-                    <div class="row cards-content-1">
+                <div class="cards-2">
+                    <div class="row cards-content">
                         <div class="col-phone-15">
                             <div class="ratio_3_4">
                                 <img class="cards-image ratio-content" src="CSS/Faye/S__15720462.jpg">
@@ -250,13 +190,8 @@
                 </div>
             </section>
             <section id="cards-1_3" class="container">
-                <div class="cards">
-                    <div class="row cards-content-1">
-                        <div class="col-phone-15">
-                            <div class="ratio_3_4">
-                                <img class="cards-image ratio-content" src="CSS/Faye/176159578_2959253974351077_2049902473232124848_n.jpeg">
-                            </div>
-                        </div>
+                <div class="cards-3">
+                    <div class="row cards-content">
                         <div class="col-phone-85">
                             <div class="ratio_pxpxpx">
                                 <div class="ratio-content cards-text">
@@ -272,6 +207,11 @@
                                     <p>我相信，當下的學習，會在潛移默化中，令他感受到整體的改變。</p>
                                     <p>你呢？會有什麼經驗呢？</p>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-phone-15">
+                            <div class="ratio_3_4">
+                                <img class="cards-image-3 ratio-content" src="CSS/Faye/176159578_2959253974351077_2049902473232124848_n.jpeg">
                             </div>
                         </div>
                     </div>
@@ -397,6 +337,21 @@
                     $(".instructor-content").slideToggle(700);
                 })
             })
+            $(function(){
+                $("#cards-title-1").click(function(){
+                    $("#cards-1_1").slideToggle(600);
+                });
+            });
+            $(function(){
+                $("#cards-title-2").click(function(){
+                    $("#cards-1_2").slideToggle(1000);
+                });
+            });
+            $(function(){
+                $("#cards-title-3").click(function(){
+                    $("#cards-1_3").slideToggle(1000);
+                });
+            });
         </script>
     </body>
 </html>
