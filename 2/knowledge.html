@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="CSS/normalize.css">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6a4f655860.js" crossorigin="anonymous"></script>
+        <script
+          src="https://code.jquery.com/jquery-3.6.1.min.js"
+          integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+          crossorigin="anonymous">
+        </script>
+    </head>
+    <body>
+        <main>
+            <style>
+/*               區塊移動、旋轉與縮放 */
+                .container{
+                    height: 700px;
+                }
+                .cover-div-1{
+                    width: 100px;
+                    height: 100px;
+                    background-color: gainsboro;
+                    transform: translateX(100px) translateY(340px) rotate(60deg) scale(5);
+/*
+                    transform的屬性要打再一起才會有變化，不可以分開打。
+                    transform: rotate(60deg);
+                    transform: scale(5);
+*/
+                }
+                .cover-div-2{
+                    background-color: linen;
+                    width: 200px;
+                    height: 50px;
+                    transform: translateX(250px) translateY(50px)rotate(100deg) scale(3);
+                }
+                .cover-div-3{
+                    background-color: pink;
+                    border-radius: 50%;
+                    width: 70px;
+                    height: 70px;
+                    transform: translateX(490px) translateY(100px)rotate(100deg) scale(1.5);
+                }
+                .cover-div-5{
+                    width: 100%;
+                    height: 80px;
+                    background-color: rgba(0,0,0,0.36);
+                    transform: translateY(-200px);
+                }
+                .cover-div-5 > a{
+                    text-decoration: none;
+                }
+                .cover-div-6{
+                    width: 300px;
+                    height: 80px;
+                    background-color: darkkhaki;
+                    transform: rotate(40deg) translateX(210px) translateY(148px);
+                }
+                .cover-div-7{
+                    width: 570px;
+                    border: 1px outset;
+                    transform: translateX(620px) translateY(-250px);
+                    padding: 12px;
+                    border-radius: 12px;
+                    height: 32em;
+                    overflow-y: scroll;
+                }
+                .cover-div-7 > h2{
+                    color: saddlebrown;
+                }
+                .cover-title{
+                    transform: translateY(3px);
+                }
+                .cover-title > a{
+                    text-decoration: none;
+                }
+                .cover-title > a >h1{
+                    width: 500px;
+                    color: black;
+                    transform: translateX(15px) translateY(10px);
+                }
+                .cover-title > a >h5{
+                    margin: 0;
+                    width: 200px;
+                    color: white;
+                    text-decoration-line: overline;
+                    transform: translateX(180px) translateY(-8px);
+                }
+                .cover-title:hover{
+                    cursor: pointer;
+                }
+                .information-list{
+                    transform: translateX(460px) translateY(15px);
+                    list-style: none;
+                    line-height: 2em;
+                    font-size: 18px;
+                    width: 500px;
+                }
+                .nav-item-1{
+                    width: 102px;
+                    height: 80px;
+                    line-height: 80px;
+                    margin: 0;
+                    color: black;
+                    transform: translateX(900px) translateY(-73.5px);
+                }
+                .nav-item-1:hover{
+                    background-color: rgba(0,0,0,0.36);
+                    cursor: pointer;
+                    color: white;
+                }
+                .nav-item-2{
+                    width: 96px;
+                    height: 80px;
+                    line-height: 80px;
+                    margin: 0;
+                    color: black;
+                    transform: translateX(1100px) translateY(-73.5px);
+                }
+                .nav-item-2:hover{
+                    background-color: rgba(0,0,0,0.36);
+                    cursor: pointer;
+                    color: white;
+                }
+            </style>
+            <section>
+                <div class="container">
+                    <div class="cover-div-1">
+                    </div>
+                    <div class="cover-div-2">
+                    </div>
+                    <div class="cover-div-3">
+                    </div>
+                    <div class="cover-div-5">
+                        <div class="cover-title">
+                            <a href="index.html">
+                                <h1>和非.費登奎斯＆瑜珈</h1>
+                                <h5>Feldenkrais & Yoga.With Faye</h5>
+                            </a>
+                        </div>
+                        <a href="instruction.html"><p class="nav-item-2">合格認證講師</p></a>
+                    </div>
+                    <div class="cover-div-6">
+                    </div>
+                    <div class="cover-div-7">
+                        <h2>
+                            『 歡迎來到 費登奎斯方法 』
+                        </h2>
+                        <hr/>
+                        <div>
+                            <p>是20世紀中葉猶太人摩謝 費登奎斯（Moshe Feldenkrais）博士所創設的一種身心互動學習方法（Somatic Education）</p>
+
+                            <p>費登奎斯方法是什麼</p>
+
+                            <p>透過自然有機的學習，整合人類的動作、思考、感受、感覺這四大元素，在費登奎斯方法中稱之「改善完善的自我意象」</p>
+
+                            <p>從身體的動作中影響轉化心態，在身心的交互變化自然發生下，發展好的組織與協調及溝通能力，讓身心互動更健康的方法。</p>
+
+                            <p>在開放式的探問與探索，不強迫或命令身體去做動作，而覺察動作中難以改變的慣性或寄生動機，保持中立性的允許動作自然的產出，深入淺出的改善病痛到發掘潛能。</p>
+
+                            <p>以簡單動作在循序漸進的過程中，輕、柔、慢、不費力、精準的動作品質，觀察神經系統運作下的動作如何穿梭在身心的聯繫互動之中，啟動良善的自我修復機制。</p>
+
+                            <p>取代訓練且用盡全力的填鴨式教育，建立對事物保持好奇心與新鮮感、同理性與接納度的學習模式，培養細緻的區辨與反轉能力，重塑成熟的正確態度來適應外在環境的變遷，健全社會性人格的發展。</p>
+
+                            <p>是身心學習而非治療復健</p>
+
+                            <p><b>學習人類世界中各種可能性的動作，來做為覺察與學習的工具，不為動作而動作。</b></p>
+
+                            <p><b>關注動作的過程，探問與感覺如何動才能習得非慣性的新經驗，不強求使命必達。</b></p>
+
+                            <p><b>破除盡全力才會有成就，讓做少勝過做多，來獲得進展與改善，不費力過份努力。</b></p>
+
+                            <p><b>在學習過程中，重新認識自己的獨特性，讓自我實現更趨理想，不刻意追求完美。</b></p>
+
+                            <p><b>提供學習情境所設計的整套動作，觸發適性的自我修復或療癒，不是治療或復健。</b></p>
+
+                            費登奎斯的課程<br/>
+                            團體課：動中覺察課程（ATM）<br/>
+                            個人課：功能整合課程（FI）<br/>
+                            ※課程詳細資訊及報名請洽詢聯絡方式與粉絲專頁<br/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script>
+            </script>
+        </main>
+    </body>
+    <footer>
+    </footer>
+</html>
