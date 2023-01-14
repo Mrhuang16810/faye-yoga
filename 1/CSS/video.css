@@ -1,0 +1,27 @@
+.video-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    border-radius: 12px;
+    overflow-y: scroll;
+}
+.video-list ._video{
+    padding: 16px;
+    cursor: pointer;
+}
+.video-player{
+    margin: 8px;
+}
+.video-container{
+    margin: 8px;
+}
+@media (max-width:767px){
+    .video-container .ratio_4_9{
+        padding-bottom: 0;
+    }
+    .video-container .ratio_4_9 .ratio-content{
+        position: static;
+        height: auto;
+    }
+}
