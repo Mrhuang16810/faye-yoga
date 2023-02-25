@@ -1,0 +1,843 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="CSS/normalize.css">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/6a4f655860.js" crossorigin="anonymous"></script>
+        <script
+          src="https://code.jquery.com/jquery-3.6.1.min.js"
+          integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+          crossorigin="anonymous">
+        </script>
+    </head>
+    <body>
+        <style>
+            body{
+                background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%,  rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );
+                max-width: 1240px;
+                height: 2100px;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                position: relative;
+                background-repeat:repeat;
+            }
+            header{
+                background-color:rgba(0,0,0,.65);
+                height: 60px;
+                width: 1200px;
+                position: fixed;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                z-index: 1000;
+            }
+            .hamburger_container{
+                position: absolute;
+                width: 30px;
+                height: 60px;
+                right: 0;
+                padding: 0 25px;
+            }
+            .hamburger_container:hover{
+                cursor: pointer;
+                background-color: rgba(0,0,0,.35);
+                border-bottom-right-radius: 20px;
+            }
+            .hamburger_container span{
+                display: block;
+                height: 4px;
+                background-color: #fff;
+                margin-top: 20px;
+                position: relative;
+                top: 0;
+                transition: transform .3s ease-in-out,top .3s ease-in-out .3s;
+            }
+            .hamburger_container span:nth-of-type(2){
+                margin-top: 12px;
+            }
+            #toggler{
+                display: none;
+            }
+            #toggler:checked ~ label .hamburger_container span:nth-of-type(1){
+                transform: rotate(45deg);
+                top: 8px;
+                transition: top .3s ease-in-out,transform .3s ease-in-out .3s;
+            }
+            #toggler:checked ~ label .hamburger_container span:nth-of-type(2){
+                transform: rotate(-45deg);
+                top: -8px;
+                transition: top .3s ease-in-out,transform .3s ease-in-out .3s;
+            }
+            .nav{
+                position: absolute;
+                background-color: rgba(0,0,0,.65);
+                min-width: 150px;
+                min-height: 300px;
+                margin-top: 60px;
+                right: 20px;
+                display: block;
+                transform: scaleY(0);
+                transition: transform .5s ease-in-out;
+                transform-origin: 0 0;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+            }
+            .nav ul{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 300px;
+            }
+            .nav ul li{
+                color: #fff;
+                font-size: 18px;
+                margin: 25px;
+            }
+            #toggler:checked ~ .nav{
+                transform: scale(1);
+            }
+            main .section_1{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            main .section_1 img{
+                width: 900px;
+                height: 500px;
+                margin-top: 60px;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+            }
+            main .section_2{
+                width: 100%;
+                height: 228px;
+                position: relative;
+            }
+            main .section_2 img{
+                width: 300px;
+                margin-top: 25px;
+                border-top-left-radius: 20px;
+            }
+            main .section_2 i{
+                font-size: 30px;
+                position: absolute;
+                bottom: 20px;
+                left: 315px;
+            }
+            main .section_2 .section_2_content{
+                position: absolute;
+                color: #fff;
+                margin: 0;
+                padding: 0 8px;
+                width: 590px;
+                height: 12em;
+                border: 4px inset #fff;
+                border-radius: 10px;
+                top: 25px;
+                left: 350px;
+                line-height: 1.5em;
+                overflow-y: hidden;
+            }
+            main .section_2 #section_2_content_input{
+                display: none;
+            }
+            main .section_2 label{
+/*                display: block;*/
+                position: absolute;
+                width: 610px;
+                height: 200px;
+                bottom: 3px;
+                right: -64px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                background-image: linear-gradient(to bottom,rgba(255,255,255,0)50%,#fff 130%);
+/*                pointer-events: none;*/
+            }
+            main .section_2 label::after{
+                content: 'Read More';
+                display: inline-block;
+                position: absolute;
+                color: #fff;
+                bottom: 10px;
+                left: 270px;
+                background-color: #333;
+                z-index: 10;
+                border-radius: 10px;
+                padding: 1px 5px;
+                cursor: pointer;
+/*                pointer-events: auto;*/
+            }
+            main .section_2 #section_2_content_input:checked ~ .section_2_content{
+                height: 500px;
+                background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%,  rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );
+                z-index: 1000;
+                position: absolute;
+                top: -320px;
+                overflow: scroll;
+            }
+            main .section_2 #section_2_content_input:checked ~ label{
+                background-image: none;
+            }
+            main .section_3{
+                width: 100%;
+                height: 228px;
+                position: relative;
+            }
+            main .section_3 img{
+                width: 300px;
+                margin-top: 25px;
+                border-top-left-radius: 20px;
+            }
+            main .section_3 i{
+                font-size: 30px;
+                position: absolute;
+                bottom: 20px;
+                left: 315px;
+            }
+            main .section_3 .section_3_content{
+                position: absolute;
+                color: #fff;
+                margin: 0;
+                padding: 0 8px;
+                width: 590px;
+                height: 12em;
+                border: 4px inset #fff;
+                border-radius: 10px;
+                top: 25px;
+                left: 350px;
+                line-height: 1.5em;
+                overflow-y: hidden;
+            }
+            main .section_3 #section_3_content_input{
+                display: none;
+            }
+            main .section_3 label{
+                width: 610px;
+                height: 200px;
+                background-image: linear-gradient(to bottom,rgba(255,255,255,0)50%,#fff 130%);
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                bottom: 3px;
+                right: -60px;
+                position: absolute;
+            }
+            main .section_3 label::after{
+                content:'Read More';
+                background-color: #333;
+                border-radius: 20px;
+                color: #fff;
+                padding: 1px 5px;
+                position: absolute;
+                bottom: 10px;
+                left: 270px;
+                z-index: 10;
+                cursor: pointer;
+            }
+            main .section_3 #section_3_content_input:checked ~ .section_3_content{
+                height: 500px;
+                background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%,  rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );
+                z-index: 1000;
+                position: absolute;
+                top: -320px;
+                overflow: scroll;
+            }
+            main .section_3 #section_3_content_input:checked ~ label{
+                background-image: none;
+            }
+            main .section_4{
+                width: 100%;
+                height: 228px;
+                position: relative;
+                margin-top: 25px;
+            }
+            main .section_4 img{
+                width: 300px;
+                height: 228px;
+                position: absolute;
+                right: 0;
+                border-top-right-radius: 20px;
+            }
+            main .section_4 i{
+                font-size: 30px;
+                position: absolute;
+                bottom: 20px;
+                right: 315px;
+            }
+            main .section_4 .section_4_content{
+                position: absolute;
+                color: #fff;
+                margin: 0;
+                padding: 0 8px;
+                width: 590px;
+                height: 14em;
+                border: 4px inset #fff;
+                border-radius: 10px;
+                left: -69px;
+                line-height: 1.5em;
+                overflow-y: hidden;
+            }
+            main .section_4 #section_4_content_input{
+                display: none;
+            }
+            main .section_4 label{
+                width: 610px;
+                height: 200px;
+                position: absolute;
+                bottom: -1px;
+                left: -67px;
+                background-image: linear-gradient(to bottom,rgba(255,255,255,0)50%,#fff 130%);
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            main .section_4 label::after{
+                content: 'Read More';
+                z-index: 1000;
+                background-color: #333;
+                border-radius: 20px;
+                padding: 1px 5px;
+                color: #fff;
+                position: absolute;
+                bottom: 10px;
+                left: 270px;
+                cursor: pointer;
+            }
+            main .section_4 #section_4_content_input:checked ~ .section_4_content{
+                height: 320px;
+                background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%,  rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );
+                z-index: 1000;
+                position: absolute;
+                top: -140px;
+                overflow: scroll;
+            }
+            main .section_4 #section_4_content_input:checked ~ label{
+                background-image: none;
+            }
+            main .section_5{
+                width: 100%;
+                height: 228px;
+                position: relative;
+                margin-top: 25px;
+            }
+            main .section_5 img{
+                width: 300px;
+                height: 228px;
+                position: absolute;
+                right: 0;
+                border-top-right-radius: 20px;
+            }
+            main .section_5 i{
+                font-size: 30px;
+                position: absolute;
+                bottom: 20px;
+                right: 315px;
+            }
+            main .section_5 .section_5_content{
+                position: absolute;
+                color: #fff;
+                margin: 0;
+                padding: 0 8px;
+                width: 590px;
+                height: 14em;
+                border: 4px inset #fff;
+                border-radius: 10px;
+                left: -69px;
+                line-height: 1.5em;
+                overflow-y: hidden;
+            }
+            main .section_5 #section_5_content_input{
+                display: none;
+            }
+            main .section_5 label{
+                width: 610px;
+                height: 200px;
+                position: absolute;
+                bottom: -1px;
+                left: -67px;
+                background-image: linear-gradient(to bottom,rgba(255,255,255,0)50%,#fff 130%);
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            main .section_5 label::after{
+                content: 'Read More';
+                z-index: 1000;
+                background-color: #333;
+                border-radius: 20px;
+                padding: 1px 5px;
+                color: #fff;
+                position: absolute;
+                bottom: 10px;
+                left: 270px;
+                cursor: pointer;
+            }
+            main .section_5 #section_5_content_input:checked ~ .section_5_content{
+                height: 320px;
+                background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%,  rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );
+                z-index: 1000;
+                position: absolute;
+                top: -140px;
+                overflow: scroll;
+            }
+            main .section_5 #section_5_content_input:checked ~ label{
+                background-image: none;
+            }
+            main .section_6{
+                width: 100%;
+                height: 228px;
+                position: relative;
+                margin-top: 25px;
+            }
+            main .section_6 img{
+                width: 300px;
+                height: 228px;
+                position: absolute;
+                right: 0;
+                border-top-right-radius: 20px;
+            }
+            main .section_6 i{
+                font-size: 30px;
+                position: absolute;
+                bottom: 20px;
+                right: 315px;
+            }
+            main .section_6 .section_6_content{
+                position: absolute;
+                color: #fff;
+                margin: 0;
+                padding: 0 8px;
+                width: 590px;
+                height: 14em;
+                border: 4px inset #fff;
+                border-radius: 10px;
+                left: -69px;
+                line-height: 1.5em;
+                overflow-y: hidden;
+            }
+            main .section_6 #section_6_content_input{
+                display: none;
+            }
+            main .section_6 label{
+                width: 610px;
+                height: 200px;
+                position: absolute;
+                bottom: -1px;
+                left: -67px;
+                background-image: linear-gradient(to bottom,rgba(255,255,255,0)50%,#fff 130%);
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            main .section_6 label::after{
+                content: 'Read More';
+                z-index: 1000;
+                background-color: #333;
+                border-radius: 20px;
+                padding: 1px 5px;
+                color: #fff;
+                position: absolute;
+                bottom: 10px;
+                left: 270px;
+                cursor: pointer;
+            }
+            main .section_6 #section_6_content_input:checked ~ .section_6_content{
+                height: 320px;
+                background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%,  rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );
+                z-index: 1000;
+                position: absolute;
+                top: -140px;
+                overflow: scroll;
+            }
+            main .section_6 #section_6_content_input:checked ~ label{
+                background-image: none;
+            }
+            svg{
+                position: absolute;
+                top: 60px;
+                display: flex;
+                justify-content: center;
+            }
+            .footer{
+                width: 1200px;
+                height: 300px;
+                background-color: rgba(0,0,0,.55);
+                position: absolute;
+                bottom: 0;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+            header h2{
+                position: absolute;
+                color: #fff;
+                margin: 0;
+                top: 8px;
+                left: 25px;
+                font-size: 25px;
+            }
+            header h3{
+                position: absolute;
+                margin: 0;
+                top: 42px;
+                left: 120px;
+                color: #fff;
+                font-size: 10px;
+                font-family: helvetica;
+                text-decoration: overline;
+            }
+            .footer .footer_information{
+                position: absolute;
+                width: 700px;
+            }
+            .footer .footer_information{
+                color: #fff;
+                text-align: center;
+                position: absolute;
+                left: 180px;
+                bottom: 39px;
+                left: 95px;
+                font-size: 18px;
+            }
+            .footer .footer_link{
+                position: absolute;
+                width: 500px;
+                height: 300px;
+                right: 0;
+            }
+            .footer .footer_link i{
+                font-size: 40px;
+                color: #ffebcd;
+            }
+            .footer .footer_link .footer_link_icon_fb{
+                position: absolute;
+                bottom: 50px;
+                left: 45px;
+                z-index: 1000;
+            }
+            .footer .footer_link .footer_link_icon_map{
+                position: absolute;
+                bottom: 50px;
+                left: 168px;
+                z-index: 1000;
+            }
+            .footer .footer_link .footer_link_icon_line{
+                position: absolute;
+                bottom: 50px;
+                left: 295px;
+                z-index: 1000;
+            }
+            .footer .footer_box_1{
+                position: absolute;
+                width: 400px;
+                height: 230px;
+                border: 2px dotted #ffebcd;
+                bottom: 30px;
+                left: 170px;
+                border-bottom-left-radius: 20px;
+                border-top-left-radius: 40px;
+                border-top: none;
+                border-right: none;
+                
+            }
+            .footer .footer_box_2{
+                position: absolute;
+                width: 360px;
+                height: 55px;
+                border: 2px dotted #ffebcd;
+                bottom: 30px;
+                left: 730px;
+                border-top: none;
+                border-right: none;
+                border-left: none;
+            }
+            .footer .footer_box_3{
+                 position: absolute;
+                width: 157px;
+                height: 55px;
+                border: 2px dotted #ffebcd;
+                bottom: 30px;
+                left: 571px;
+                border-right: none;
+                border-left: none;
+                border-top: none;
+            }
+            .footer .footer_box_4{
+                 position: absolute;
+                width: 310px;
+                height: 55px;
+                border: 2px dotted #ffebcd;
+                bottom: 100px;
+                left: 571px;
+                border-top-right-radius: 50px;
+                border-right: none;
+                border-left: none;
+                border-bottom: none;
+            }
+            .footer .footer_box_5{
+                 position: absolute;
+                width: 440px;
+                height: 55px;
+                border: 2px dotted #ffebcd;
+                bottom: 100px;
+                left: 571px;
+                border-top-right-radius: 50px;
+                border-right: none;
+                border-left: none;
+                border-bottom: none;
+            }
+            .footer .footer_box_6{
+                 position: absolute;
+                width: 190px;
+                height: 55px;
+                border: 2px dotted #ffebcd;
+                bottom: 100px;
+                left: 571px;
+                border-top-right-radius: 50px;
+                border-right: none;
+                border-left: none;
+                border-bottom: none;
+            }
+            .footer .footer_box_7{
+                position: absolute;
+                left: 180px;
+                top: 40px;
+            }
+            .footer .footer_box_7 h2{
+                color: #bdb76b;
+            }
+        </style>
+        <header>
+            <input type="checkbox" id="toggler">
+
+            <label for="toggler">
+                <div class="hamburger_container">
+                    <span></span>
+                    <span></span>
+                </div>
+            </label>
+            <div class="nav">
+                <ul>
+                    <li>課表</li>
+                    <li>作品</li>
+                    <li>教學影片</li>
+                    <li>學生反饋</li>
+                    <li>上課地點</li>
+                </ul>
+            </div>
+            <div class="title">
+                <a href="index.html">
+                    <h2>和非.費登奎斯＆瑜珈</h2>
+                    <h3>Feldenkrais & Yoga.With Faye</h3>
+                </a>
+            </div>
+        </header>
+        <main>
+            <section class="section_1">
+                <img src="image/62487.jpg" alt="62487">
+            </section>
+            <section class="section_2">
+                <img src="image/62484.jpg" alt="62484">
+                <i class="fa-sharp fa-solid fa-caret-right"></i>
+                <input type="checkbox" id="section_2_content_input">
+                <label for="section_2_content_input"></label>
+                <div class="section_2_content">
+                    <h2>
+                        『 歡迎來到 費登奎斯方法 』
+                    </h2>
+                    <hr/>
+                    
+                    <p>是20世紀中葉猶太人摩謝 費登奎斯（Moshe Feldenkrais）博士所創設的一種身心互動學習方法（Somatic Education）</p>
+
+                    <p>費登奎斯方法是什麼</p>
+
+                    <p>透過自然有機的學習，整合人類的動作、思考、感受、感覺這四大元素，在費登奎斯方法中稱之「改善完善的自我意象」</p>
+
+                    <p>從身體的動作中影響轉化心態，在身心的交互變化自然發生下，發展好的組織與協調及溝通能力，讓身心互動更健康的方法。</p>
+
+                    <p>在開放式的探問與探索，不強迫或命令身體去做動作，而覺察動作中難以改變的慣性或寄生動機，保持中立性的允許動作自然的產出，深入淺出的改善病痛到發掘潛能。</p>
+
+                    <p>以簡單動作在循序漸進的過程中，輕、柔、慢、不費力、精準的動作品質，觀察神經系統運作下的動作如何穿梭在身心的聯繫互動之中，啟動良善的自我修復機制。</p>
+
+                    <p>取代訓練且用盡全力的填鴨式教育，建立對事物保持好奇心與新鮮感、同理性與接納度的學習模式，培養細緻的區辨與反轉能力，重塑成熟的正確態度來適應外在環境的變遷，健全社會性人格的發展。</p>
+
+                    <p>是身心學習而非治療復健</p>
+
+                    <p><b>學習人類世界中各種可能性的動作，來做為覺察與學習的工具，不為動作而動作。</b></p>
+
+                    <p><b>關注動作的過程，探問與感覺如何動才能習得非慣性的新經驗，不強求使命必達。</b></p>
+
+                    <p><b>破除盡全力才會有成就，讓做少勝過做多，來獲得進展與改善，不費力過份努力。</b></p>
+
+                    <p><b>在學習過程中，重新認識自己的獨特性，讓自我實現更趨理想，不刻意追求完美。</b></p>
+
+                    <p><b>提供學習情境所設計的整套動作，觸發適性的自我修復或療癒，不是治療或復健。</b></p>
+
+                    費登奎斯的課程<br/>
+                    團體課：動中覺察課程（ATM）<br/>
+                    個人課：功能整合課程（FI）<br/>
+                    ※課程詳細資訊及報名請洽詢聯絡方式與粉絲專頁<br/>
+                </div>
+            </section>
+            <section class="section_3">
+                <img src="image/%E7%9B%B8%E7%89%87%202023-1-12%2013%2003%2046.jpg" alt="13 03 46">
+                <i class="fa-sharp fa-solid fa-caret-right"></i>
+                <input type="checkbox" id="section_3_content_input">
+                <label for="section_3_content_input"></label>
+                <div class="section_3_content">
+                    <h2>
+                        『 國際費登奎斯方法合格認證講師 Faye Lin 介紹 』
+                    </h2>
+                    <hr/>
+                    <p>早期取得瑜珈師資執照，投入了全職瑜珈老師的領域，經過幾年的教課與練習，無論在自己或學生的身上，發現即使沒有產生新傷卻也無法徹底療癒舊傷，而在把瑜珈蔚成運動的風氣下，出現了諸多的限制與衝突，對於身心完整發展的可能性逐漸被侷限。於是，試圖在胡同之中尋覓出一條適合我得以適應的道路，在2012年我遇見費登奎斯方法。</p>
+
+                    <p>動中覺察課程（ATM）許多年來曾為自我練習瑜珈的美好前奏，讓我汲取豐盛的內在探索經驗所形構出一幅身體風景(身體的意象)，無論是局部的特寫或是整幅全景，這樣的先驗投入到瑜珈的練習之中，每每都會有新的發現讓練習的品質更完善。因此，將費登奎斯方法的理論、技巧與練習經驗，集結參讀各方領域中的學識，將之成為瑜珈練習的自然順位原則，重新建構姿勢的多元可能性，發展成動態體位法，成了我的實驗場域，把費登奎斯方法的抽象運用到瑜珈練習的具象。</p>
+
+                    <p>而費登奎斯的最大精彩，是承認自己的當下能力的獨特性、接受與他人的差異性，能與之和諧的關係。這開放了我在教學上的視野以及面對生命的態度，沒有做不到的只有適合的，沒有非得不可的目標只有循序漸進地朝往。</p>
+
+                    <p>貧瘠的學歷與豐實的經歷：</p>
+                    <p>自2009年取得美國瑜珈聯盟200小時認證瑜珈師資後，成為全職瑜珈老師，教授瑜珈課程。在2017年8月取得「國際費登奎斯方法 」之「動中覺察 Awearness Through Movement ( 簡稱 ATM )」合格授課老師，開班教授「動中覺察」團體課程，同時把費登奎斯所學的經驗轉化為瑜珈的練習教授「費登奎斯式瑜珈」團體課程。2019年8月取得授證之「國際費登奎斯方法 」合格教師(為期四年800小時)後，始授課「功能整合 Funtional Integration ( 簡稱FI ) 」個人化課程。</p>
+
+                    <p>......至今，持續中，無論是費登奎斯或是瑜珈......</p>
+                </div>
+            </section>
+            <section class="section_4">
+                <img src="image/S__15720460.jpg">
+                <i class="fa-solid fa-caret-left"></i>
+                <input type="checkbox" id="section_4_content_input">
+                <label for="section_4_content_input"></label>
+                <div class="section_4_content">
+                    <h2>
+                        『 視覺上是美麗的 』
+                    </h2>
+                    <hr/>
+                    <p>當我們結束FI，我把時間留給她，看見她的雙手在空間中彈奏著心裡的樂章時，聽見她對我們說</p>
+
+                    <p>「感覺比較鬆的雙手，跟平常感覺的手有什麼不同?」</p>
+
+                    <p>「比較鬆」她反覆撫弄著雙手，沉吟輕語，對我也對她自己表白</p>
+
+                    <p>原來〝鬆〞是美麗的！！！</p>
+                    <p>再一次，令我敬佩而我稱她為「女人!你的名字叫做勇敢」的Emily，教導我『美麗』可以用〝鬆〞來呈現。</p>
+                </div>
+            </section>
+            <section class="section_5">
+                <img src="image/S__15720462.jpg">
+                <i class="fa-solid fa-caret-left"></i>
+                <input type="checkbox" id="section_5_content_input">
+                <label for="section_5_content_input"></label>
+                <div class="section_5_content">
+                    <h2>
+                        『 瑜珈體位法讀書會 』
+                    </h2>
+                    <hr/>
+                    <p>以下為「瑜珈體位法讀書會」之學生分享：</p>
+                    <p>將注意力放到身體在空間中～</p>
+
+                    <p>我喜歡老師上課前，總是讓我躺下，就像在告訴身體，</p>
+                    <p>『不要緊張，不用出力，安靜的，放鬆的就好。』</p>
+                    <p>然後我閉上雙眼，開始勾勒出身體的形狀，</p>
+                    <p>從頭頂開始，沿著每一節脊椎向下延伸，就像電腦3D製圖一樣，</p>
+                    <p>先畫出身體的中線，於是我變成了兩半，可以向前對折，或向後對折，</p>
+                    <p>突然的，我覺得自己變成了一隻蝴蝶。一隻在做半月式的蝴蝶！</p>
+
+                    <p>當我一邊在想樣中，身體也同步在行動，</p>
+                    <p>剛開始，我感到自信，覺得身體的型態即將和我腦中的畫面一致，</p>
+                    <p>但是馬上的就開始感受到身體的某些部位不聽指令，</p>
+                    <p>然後想像力也中斷了。</p>
+
+                    <p>我不經開始思考，想像力是來自心裏還是腦袋？心裏的事就是腦袋裏跑出的嗎？</p>
+
+                    <p>這就是身心合一的感覺嗎？</p>
+                </div>
+            </section>
+            <section class="section_6">
+                <img src="image/176159578_2959253974351077_2049902473232124848_n.jpeg">
+                <i class="fa-solid fa-caret-left"></i>
+                <input type="checkbox" id="section_6_content_input">
+                <label for="section_6_content_input"></label>
+                <div class="section_6_content">
+                    <h2>
+                        『 功能整課程 』
+                    </h2>
+                    <hr/>
+                    <p>最近，持續的進行「功能整課程」，有個小小的觀察，覺得十分有趣</p>
+                    <p>經常，會有人在課程中進入恍惚半入睡狀態，而這時，每個人所呈現的本體感覺都不甚相同</p>
+                    <p>有些人，清醒意識時的本體感是輕盈的，彷彿自我意象能駕馭著身體當下的學習；</p>
+                    <p>而當他進入意識的交界處時，有彷彿退駕般的沉默不語，交托身體任由我的碰觸引導產生本體的經驗學習</p>
+                    <p>即使，當下，他是不自知，卻能在站立整合時，感受到整體的變化。</p>
+                    <p>有些人，恰恰相反</p>
+                    <p>在跟隨我的碰觸下，處處感覺到僵硬沉重，如同自我意象被束縛框架，在不知名或極度掌控的情境中，無可自拔、無能為力，動彈無方......</p>
+                    <p>一旦，他再經過某種驅策的臣服卸除，自發的走入恍惚的邊緣，如同重獲自由般，身體如同初生嬰兒以再輕盈不過的自我意象，與我共舞....</p>
+                    <p>美極了，就算他回到清醒的意識，依然僵硬沉重</p>
+                    <p>我相信，當下的學習，會在潛移默化中，令他感受到整體的改變。</p>
+                    <p>你呢？會有什麼經驗呢？</p>
+                </div>
+            </section>
+        </main>
+        <svg width="1200" height="1000">
+            <line x1="8" y1="150" x2="145" y2="150" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="5" y1="150" x2="5" y2="690" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="8" y1="690" x2="80" y2="690" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="85" y1="150" x2="85" y2="949" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="85" y1="820" x2="157" y2="945" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="85" y1="590" x2="157" y2="719" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="88" y1="719" x2="480" y2="719" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="88" y1="949" x2="480" y2="949" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+        </svg>
+        <svg width="1200" height="1750">
+            <line x1="1055" y1="300" x2="1195" y2="300" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="1195" y1="300" x2="1195" y2="1050" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="1125" y1="1050" x2="1195" y2="1050" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="1125" y1="300" x2="1125" y2="1712" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="710" y1="1715" x2="1125" y2="1715" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="1046" y1="1710" x2="1125" y2="1550" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="710" y1="1460" x2="1125" y2="1460" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="1043" y1="1460" x2="1125" y2="1300" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="710" y1="1210" x2="1125" y2="1210" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+            <line x1="1043" y1="1210" x2="1125" y2="1050" stroke="#ccc" stroke-width="8" stroke-linecap="round"></line>
+        </svg>
+        <div class="footer">
+            <div class="footer_information">
+                <p>電話諮詢：0919 413 313</p>
+                <p>授課教室：台北市文山區景興路275巷1號</p>
+                <p>Email：fayelin0222@gmail.com</p>
+            </div>
+            <div class="footer_link">
+                <div class="footer_link_icon">
+                    <div class="footer_link_icon_fb">
+                        <a href="https://www.facebook.com/feldenkraiswithfayelin">
+                            <i class="fa fa-brands fa-facebook"></i>
+                        </a>
+                    </div>
+                    <div class="footer_link_icon_map">
+                        <a href="https://www.google.com.tw/maps/place/116%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%99%AF%E8%88%88%E8%B7%AF275%E5%B7%B71%E8%99%9F/@24.9900179,121.5407803,17z/data=!3m1!4b1!4m5!3m4!1s0x3442aa074b950811:0x77bba1abae63864e!8m2!3d24.9900179!4d121.5429744?hl=zh-TW">
+                            <i class="fa fa-sharp fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
+                    <div class="footer_link_icon_line">
+                        <a href="https://line.me/ti/p/-B73FCuMw-">
+                            <i class="fa fa-brands fa-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_box_1">
+            </div>
+            <div class="footer_box_2">
+            </div>
+            <div class="footer_box_3">
+            </div>
+            <div class="footer_box_4">
+            </div>
+            <div class="footer_box_5">
+            </div>
+            <div class="footer_box_6">
+            </div>
+            <div class="footer_box_7">
+                <h2>『 Faye Lin 費登奎斯身心教育講師 與 瑜珈老師 』</h2>
+            </div>
+        </div>
+    </body>
+</html>
