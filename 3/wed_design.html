@@ -15,113 +15,144 @@
     <body>
         <style>
             body{
+                margin: 0;
                 background-image: radial-gradient( circle farthest-corner at 5.6% 54.5%,  rgba(47,71,79,1) 0%, rgba(159,188,198,1) 83.6% );
+                height: 715px;
                 background-repeat: no-repeat;
-                width: 100%;
-                margin: auto;
+                background-size: cover;
             }
-            .image_bg_container{
-                display: flex;
-                justify-content: center;
+            .container{
+                max-width: 1240px;
+            }
+            .row{
+                display: table;
+                width: 100%;
+            }
+/*            手機*/
+            .col-phone-100{
+                width: 100%;
+                float: left;
+            }
+            .col-phone-70{
+                width: 70%;
+                float: left;
+            }
+            .col-phone-50{
+                width: 50%;
+                float: left;
+            }
+            .col-phone-44{
+                width: 44%;
+                float: left;
+            }
+            .col-phone-34{
+                width: 34%;
+                float: left;
+            }
+            .col-phone-33{
+                width: 33%;
+                float: left;
+            }
+            .col-phone-28{
+                width: 28%;
+                float: left;
+            }
+            .col-phone-15{
+                width: 15%;
+                float: left;
+            }
+            
+/*            平板*/
+            @media (min-width:990px){
+                .col-tablet-100{
+                    width: 100%;
+                    float: left;
+                }
+                .col-tablet-70{
+                    width: 70%;
+                    float: left;
+                }
+                .col-tablet-50{
+                    width: 50%;
+                    float: left;
+                }
+                .col-tablet-44{
+                    width: 44%;
+                    float: left;
+                }
+                .col-tablet-34{
+                    width: 34%;
+                    float: left;
+                }
+                .col-tablet-33{
+                    width: 33%;
+                    float: left;
+                }
+                .col-tablet-28{
+                    width: 28%;
+                    float: left;
+                }
+                .col-tablet-15{
+                    width: 15%;
+                    float: left;
+                }
+            }
+            
+/*            桌機*/
+            @media (min-width:1100px){
+                .col-desktop-100{
+                    width: 100%;
+                    float: left;
+                }
+                .col-desktop-70{
+                    width: 70%;
+                    float: left;
+                }
+                .col-desktop-50{
+                    width: 50%;
+                    float: left;
+                }
+                .col-desktop-44{
+                    width: 44%;
+                    float: left;
+                }
+                .col-desktop-34{
+                    width: 34%;
+                    float: left;
+                }
+                .col-desktop-33{
+                    width: 33%;
+                    float: left;
+                }
+                .col-desktop-28{
+                    width: 28%;
+                    float: left;
+                }
+                .col-desktop-15{
+                    width: 15%;
+                    float: left;
+                }
+            }
+            .box{
                 position: relative;
             }
-            .image_bg_container .image_bg{
-                width: 700px;
-                height: auto;
+            .image{
+                width: 100%;
                 opacity: .8;
                 border-radius: 20px;
                 box-shadow: 5px 5px 5px rgba(0,0,0,.55);
-            }
-            .image_bg_container .title{
-                position: absolute;
-                width: 700px;
-                height: 300px;
-                right: 0;
-                top: 420px;
-            }
-            .title .h2_1{
-                position: absolute;
-                bottom: 0;
-                right: 735px;
-                color: #fff;
-                font-size: 50px;
-                letter-spacing: 5px;
-                transform: rotate(-10deg)
-            }
-            .title .h2_2{
-                position: absolute;
-                bottom: 25px;
-                right: 685px;
-                color: #fff;
-                font-size: 45px;
-                transform: rotate(-38deg)
-            }
-            .title .h2_3{
-                position: absolute;
-                bottom: 45px;
-                right: 670px;
-                color: #fff;
-                font-size: 35px;
-                transform: rotate(-60deg)
-            }
-            .title .h2_4{
-                position: absolute;
-                bottom: 95px;
-                right: 600px;
-                color: #fff;
-                font-size: 30px;
-                letter-spacing: 5px;
-                transform: rotate(-47deg)
-            }
-            .title .h2_5{
-                position: absolute;
-                bottom: 165px;
-                right: 560px;
-                color: #fff;
-                font-size: 20px;
-                letter-spacing: 10px;
-                transform: rotate(-64deg)
-            }
-            .title .h2_6{
-                position: absolute;
-                bottom: 205px;
-                right: 570px;
-                color: #fff;
-                font-size: 10px;
-                transform: rotate(-95deg)
-            }
-            .title .h2_7{
-                position: absolute;
-                bottom: 245px;
-                right: 560px;
-                color: #fff;
-                font-size: 5px;
-                letter-spacing: 10px;
-                transform: rotate(-110deg)
-            }
-            .title h4{
-                position: absolute;
-                bottom: 41px;
-                right: 384px;
-                color: #fff;
-                font-size: 20px;
-                font-family: helvetica;
-                text-decoration: overline;
-            }
         </style>
-        <div class="image_bg_container">
-            <img class="image_bg" src="image/pexels-pixabay-60573.jpg">
-            <div class="title">
+        <div class="row box">
+            <div class="col-phone-15">
+                <span style="color: transparent">1</span>
+            </div>
+            <div class="col-phone-70" style="position: relative;">
                 <a href="index.html">
-                    <h2 class="h2_1">和</h2>
-                    <h2 class="h2_2">非</h2>
-                    <h2 class="h2_3">.</h2>
-                    <h2 class="h2_4">費登</h2>
-                    <h2 class="h2_5">奎斯</h2>
-                    <h2 class="h2_6">＆</h2>
-                    <h2 class="h2_7">瑜珈</h2>
-                    <h4>Feldenkrais & Yoga.With Faye</h4>
+                    <img class="image" src="image/%E6%88%AA%E5%9C%96%202023-02-26%20%E4%B8%8B%E5%8D%8811.54.55.png">
                 </a>
+            </div>
+            <div class="col-phone-15">
+                <span style="color: transparent">1</span>
             </div>
         </div>
     </body>
